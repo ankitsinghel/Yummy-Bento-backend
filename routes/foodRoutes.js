@@ -12,7 +12,7 @@ const storage=multer.diskStorage({
         return cb(null,`${Date.now}${file.originalname}`) //to rename the file so that to make it unique.(By adding date to it's name)
     }
 })
-const upload=multer({storage:storage})
+const upload=multer({storage})
 
 foodRouter.post('/add',upload.single('image'),authMiddleware, addFood);
 foodRouter.get('/list',showFood);

@@ -1,5 +1,5 @@
 import User from '../models/userModel.js'
-import Food from '../models/foodModel.js'
+
 
 //add items to cart
 const addToCart=async(req,res)=>{
@@ -44,7 +44,7 @@ const removeFromCart=async(req,res)=>{
   else{
     cartData[req.body.itemId]-=1;
   }
-  const userfinal=  await User.findByIdAndUpdate(req.body.userId,{cartData:cartData},{new:true})
+  const userfinal= await User.findByIdAndUpdate(req.body.userId,{cartData:cartData},{new:true})
    res.json({
     success: true,
     message: "Cart updated successfully",
